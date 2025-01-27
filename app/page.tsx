@@ -1,77 +1,38 @@
-import { Button } from "@/components/ui/button";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/ui/app-sidebar";
-import {Apple} from "lucide-react"
+"use client"
+
+import { ProductScanner } from "@/components/ProductScanner"
+import { WorkerAssignment } from "@/components/WorkerAssignment"
+import { SendToMainBranch } from "@/components/SendToMainBranch"
+
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { BarChart, CartesianGrid, XAxis, Bar } from "recharts"
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
+  TrendingUp,
+  Send,
+  Users,
+  Package,
+  Clock,
+} from "lucide-react"
 
-export default function Home() {
+const chartData = [
+  { month: "Jan", desktop: 150, mobile: 90 },
+  { month: "Feb", desktop: 180, mobile: 100 },
+  { month: "Mar", desktop: 200, mobile: 110 },
+  { month: "Apr", desktop: 190, mobile: 120 },
+  { month: "May", desktop: 209, mobile: 130 },
+  { month: "Jun", desktop: 214, mobile: 140 },
+]
+
+export default function Page() {
   return (
-    <>
-    <div className="flex h-screen">
-      <div className="w-[20%] bg-white">
-        <div className="w-full">
-          <NavigationMenu className="h-full p-1">
-            <NavigationMenuList className="flex flex-col space-y-3">
-              <NavigationMenuItem>
-                <h1 className="w-full justify-start text-4xl mb-6 px-4 font-bold">
-                  Main Branch
-                </h1>
-<hr />
-                <Button variant="ghost" className="w-full text-gray-500  justify-start px-4 hover:bg-[rgb(245,246,248)]">
-                <Apple />
-                  Branch Tasks
-                  
-                </Button>
-                <Button variant="ghost" className="w-full  text-gray-500  justify-start px-4 hover:bg-[rgb(245,246,248)]">
-                <Apple />
-                  Orders
-                </Button>
-                <Button variant="ghost" className="w-full  text-gray-500  justify-start px-4 hover:bg-[rgb(245,246,248)]">
-                <Apple />
-                  Inventory
-                </Button>
-                <Button variant="ghost" className="w-full  text-gray-500  justify-start px-4 hover:bg-[rgb(245,246,248)]">
-                <Apple />
-                  Employees
-                </Button>
-                <Button variant="ghost" className="w-full   text-gray-500 justify-start px-4 hover:bg-[rgb(245,246,248)]">
-                <Apple />
-                  Task Assignments
-                </Button>
-                <Button variant="ghost" className="w-full  text-gray-500 justify-start px-4 hover:bg-[rgb(245,246,248)]">
-                <Apple />
-                  Task Assignments
-                </Button>
-                <Button variant="ghost" className="w-full  text-gray-500  justify-start px-4 hover:bg-[rgb(245,246,248)]">
-                <Apple />
-                  Task Assignments
-                </Button>
-                <Button variant="ghost" className="w-full  text-gray-500  justify-start px-4 hover:bg-[rgb(245,246,248)]">
-                <Apple />
-                  Task Assignments
-                </Button>
-                <NavigationMenuContent className="w-full mt-2">
-                  <div className="p-2 hover:bg-[rgb(245,246,248)]">Link</div>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-      </div>
-
-      <div className="w-[80%] bg-gray-100">
-        
-      </div>
+    <div>
+    <h1 className="text-3xl font-bold mb-6">Dashboard</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <ProductScanner />
+      <WorkerAssignment />
     </div>
-</>
-  );
+    <SendToMainBranch />
+  </div>
+  )
 }
